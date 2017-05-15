@@ -112,7 +112,6 @@
             <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
         
 
-
         
             <div id="switch-btn" class="switch-btn">
                 <div class="icon">
@@ -185,7 +184,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Creation/">Creation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OOP/">OOP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python3/">Python3</a></li></ul>
                     </div>
                 </section>
                 
@@ -204,6 +203,7 @@
                 </section>
                 
 
+
                 
                 
                 <section class="switch-part switch-part4">
@@ -215,7 +215,8 @@
         </div>
     </header>                
 </div>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=30621947&auto=0&height=66"></iframe>
+
+
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
@@ -342,20 +343,6 @@
 
 
     
-        <section class="youyan" id="comments">
-    <script>
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2133669';
-            (d.head || d.body).appendChild(s);
-        }
-    </script>
-    
-    <script> loadComment(); </script>
-
-    <div id="uyan_frame"></div>
-</section>
-    
 
 
 
@@ -453,11 +440,11 @@
         var titleTime;
         document.addEventListener("visibilitychange", function() {
             if (document.hidden) {
-                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                document.title = "(つェ⊂) " + originTitle;
                 clearTimeout(titleTime);
             }
             else {
-                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                document.title = "(*´∇｀*) " + originTitle;
                 titleTime = setTimeout(function() {
                     document.title = originTitle;
                 }, 2000);
