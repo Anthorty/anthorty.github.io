@@ -406,11 +406,18 @@
 
 
     
-        <section class="youyan" id="comments">
+        <section id="comments">
+    <style> aside.comment-bar { margin: auto 30px; }</style>
+    <div id="disqus_thread"></div>
     <script>
+        var disqus_config = function(){
+            this.page.url = 'http://lovesaber.tk/tags/index.html';
+            this.page.identifier = 'tags/index.html';
+        };
         var loadComment = function(){
             var d = document, s = d.createElement('script');
-            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2133669';
+            s.src = '//lovesaber.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
         }
     </script>
@@ -440,8 +447,24 @@
         }
     </script>
 
-    <div id="uyan_frame"></div>
 </section>
+
+
+    // Add comment count
+    <script id="dsq-count-scr" src="//lovesaber.disqus.com/count.js" async></script>
+    <span class="disqus-comment-count" data-disqus-identifier="tags/index.html"></span>
+    <span class="disqus-comment-count" data-disqus-url="http://lovesaber.tk/tags/index.html"></span>
+    <script>
+        $(".disqus-comment-count").hide();
+        var $disqusCount = $(".disqus-comment-count");
+        $disqusCount.bind("DOMNodeInserted", function(e) {
+            $(".count-comment").text(
+                $(this).text().replace(/[^0-9]/ig,"")
+            )
+            DISQUSWIDGETS.getCount({reset: true});
+        })
+    </script>
+
     
 
 
