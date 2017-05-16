@@ -10,13 +10,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="404 Not Found：该页无法显示">
-<meta property="og:url" content="http://lovesaber.tk/404.html">
+<meta name="description" content="面向对象编程是一种程序设计的思想，或者叫做一种程序设计模式。">
+<meta name="keywords" content="Python,OOP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OOP（面向对象编程）">
+<meta property="og:url" content="http://lovesaber.tk/2017/05/15/OOP(面向对象编程)/index.html">
 <meta property="og:site_name" content="Love Saber">
-<meta property="og:updated_time" content="2017-05-15T13:41:18.433Z">
+<meta property="og:description" content="面向对象编程是一种程序设计的思想，或者叫做一种程序设计模式。">
+<meta property="og:updated_time" content="2017-05-15T15:08:56.800Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404 Not Found：该页无法显示">
+<meta name="twitter:title" content="OOP（面向对象编程）">
+<meta name="twitter:description" content="面向对象编程是一种程序设计的思想，或者叫做一种程序设计模式。">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -48,7 +52,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>404 Not Found：该页无法显示 | Love Saber</title>
+<title>OOP（面向对象编程） | Love Saber</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -58,7 +62,7 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -261,11 +265,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-OOP(面向对象编程)" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/404.html" class="article-date">
-      <time datetime="2017-05-15T13:41:18.433Z" itemprop="datePublished">2017-05-15</time>
+      <a href="/2017/05/15/OOP(面向对象编程)/" class="article-date">
+      <time datetime="2017-05-15T14:50:29.000Z" itemprop="datePublished">2017-05-15</time>
 </a>
 
 
@@ -280,7 +284,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      404 Not Found：该页无法显示
+      OOP（面向对象编程）
     </h1>
   
 
@@ -288,8 +292,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Learning-Note/">Learning Note</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -297,36 +309,74 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <p>面向对象编程是一种程序设计的思想，或者叫做一种程序设计模式。</p>
+<p>核心就是一切皆对象。</p>
+<h2 id="什么是对象？"><a href="#什么是对象？" class="headerlink" title="什么是对象？"></a>什么是对象？</h2><p>前面说了，一切皆对象。所有能称得上”东西“的实体，都可以称作对象。在 Python 中每一种数据类型，都是对象。对象是程序的基本单元，换句话说，程序其实是对象的集合。对象，能接收消息，也能够处理这些消息，当然也能发出消息。</p>
+<h2 id="类和实例"><a href="#类和实例" class="headerlink" title="类和实例"></a>类和实例</h2><p>Python 中除了 <code>int</code>、<code>float</code>、<code>str</code>，<code>bool</code>等基本数据类型，还可以自定义创建数据类型。这就需要引入”类“这个概念。</p>
+<h3 id="什么是类？"><a href="#什么是类？" class="headerlink" title="什么是类？"></a>什么是类？</h3><p>类，通俗一点讲就是模板，比如 student 类，就是学生的模板。Java 和 Python 定义类都是”class“这个关键字。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span> <span class="comment">##这就定义了一个类(模板)</span></div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure></p>
+<p>用模板创建出来的对象叫做实例。<code>xiaoming = Student()</code>就创建一个 <code>Student</code> 类型的数据 <code>xiaoming</code>。<code>xiaoming</code> 是一个对象，也是 <code>Student</code> 类的一个实例。</p>
+<p>类中定义了一组变量和方法，用该类实例化的对象，都会获得这些属性和方法。但是每一个实例都是独立的，也就是说，当一个实例的属性和方法发生变化时，不影响其他的实例。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, score)</span>:</span></div><div class="line">        self.name = name</div><div class="line">        self.score = score</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">print_score</span><span class="params">(self)</span>:</span></div><div class="line">        print(<span class="string">'%s: %s'</span> % (self.name, self.score))</div></pre></td></tr></table></figure></p>
+<p>这是一个定义了 <code>Student</code>的完整的类，<code>__init__</code>方法是一个特殊的方法，从对象的角度，他为 <code>Student</code>能创建的实例都绑定了两个属性。所以说 <code>Student</code> 有 <code>name</code> 和 <code>score</code> 这两个属性，以及一个 <code>print</code>方法。从对象的生命周期上来讲，<code>__init__</code>方法对象实例化的入口，也就是说在执行<code>bart = Student(&#39;Bart Simpson&#39;, 59)</code>时，程序执行到<code>___init__</code>方法便创建了一个对象，并被分派给某些变量赋值。</p>
 
-
-          
-        
       
     </div>
     
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/05/15/OOP(面向对象编程)/">OOP（面向对象编程）</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">一生无悔Saber控</a></p>
+        <p><span>发布时间:</span>2017-05-15, 23:50:29</p>
+        <p><span>最后更新:</span>2017-05-16, 00:08:56</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/05/15/OOP(面向对象编程)/" title="OOP（面向对象编程）">http://lovesaber.tk/2017/05/15/OOP(面向对象编程)/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://lovesaber.tk/2017/05/15/OOP(面向对象编程)/　　作者: 一生无悔Saber控" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/05/16/python3/">
+                    Python3 IO读写
+                </a>
+            </div>
+        
+        
+    </nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是对象？"><span class="toc-number">1.</span> <span class="toc-text">什么是对象？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类和实例"><span class="toc-number">2.</span> <span class="toc-text">类和实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是类？"><span class="toc-number">2.1.</span> <span class="toc-text">什么是类？</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
+    </script>
 
 
 
@@ -345,6 +395,63 @@
 
 
 
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2133669';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <aside class="comment-bar">
+        <a href="javascript:void(0);">
+            <i class="fa fa-commenting-o animated infinite pulse"></i>
+            <i class="fa fa-spinner fa-pulse"></i>
+            <span class="count-comment"></span>
+        </a>
+    </aside>
+    <script>
+        var $commentBar = $("#comments aside.comment-bar");
+        var load$hide = function(){
+            $commentBar.find("a > i").toggle();
+            loadComment();
+            $commentBar.fadeOut(800);
+        }
+        $commentBar.click(function(){
+            load$hide();
+        })
+        $commentBar.children("a").hover(function(){
+            load$hide();
+        })
+        if (window.location.hash === "#comments") {
+            load$hide();
+        }
+    </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/05/16/python3/" title="上一篇: Python3 IO读写">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/16/hello-world/">Hello World!</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/16/python3/">Python3 IO读写</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/15/OOP(面向对象编程)/">OOP（面向对象编程）</a></li></ul>
 
 
 
