@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[由一次map引发的思考]]></title>
+    <url>%2F2017%2F12%2F12%2F2017-12-12%2F</url>
+    <content type="text"><![CDATA[从匿名函数开始首先定义一个简单函数和一个列表1234def foo(x): return x * xL = [1,2,3,4] 然后使用map函数，迭代计算出结果12In [11]: list(map(foo,L))Out[11]: [1, 4, 9, 16] 如果这时候加上x，会怎么样呢？说干就干123456789In [12]: x = 3In [13]: list(map(foo(x),L))---------------------------------------------------------------------------TypeError Traceback (most recent call last)&lt;ipython-input-13-d15e71ee2031&gt; in &lt;module&gt;()----&gt; 1 list(map(foo(x),L))TypeError: &apos;int&apos; object is not callable 直接报错了，那如果返回的是另外一个函数呢？用匿名函数试一下123456In [14]: def foo1(x): ...: return lambda x: x * x ...:In [15]: list(map(foo1(x),L))Out[15]: [1, 4, 9, 16] 此时能计算出正确的值，但是foo1(x)中的x参数此时对map对象没有影响了，也就是说x的值并没有传入到匿名函数中。不带x参数的时候，运行结果是123456In [18]: list(map(foo1,L))Out[18]:[&lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;, &lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;, &lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;, &lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;] 相比之下，使用表达式方式才是使用匿名函数的正确姿势1234In [16]: a = lambda y:y * yIn [17]: list(map(a,L))Out[17]: [1, 4, 9, 16] 而这种方式也是匿名函数的初衷。]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[多进程和多线程]]></title>
     <url>%2F2017%2F05%2F23%2F%E5%A4%9A%E8%BF%9B%E7%A8%8B%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[多进程 在Linux和Unix环境下，系统提供了os.fork()接口，可以直接调用。在Windows环境下，系统没有提供fork(),可以使用multiprocess库来打到多进程和多线程的目的。]]></content>
