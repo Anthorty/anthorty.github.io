@@ -45,9 +45,43 @@ Hi Anthorty! You've successfully authenticated, but GitHub does not provide shel
 ## 上传hexo文件夹中的文件
 
 打开命令行，切换到hexo文件夹，使用如下git命令
+详细方法见 [Git远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
 ```
-git remote add <name> git@github.com:yourname/yourname.github.io.git
-git 
+git remote add backup git@github.com:yourname/yourname.github.io.git
+git add .
+git commit -m "description"
+git push backup master:hexo
+```
+
+等待完成后，在github上的hexo分支下就会出现hexo文件夹中的内容（不包括.gitignore、.npmignore中忽略的内容）
+
+## 新设备中设置
+
+首先搭建好hexo环境 [搭建Hexo环境](https://hexo.io/zh-cn/)
+进入准备用作Hexo的文件夹，输入
+
+```
+hexo init yourblogname
+cd yourblogname
+git remote add <远程主机名（可以自己取）> git@github.com:yourname/yourname.github.io.git
+git pull <远程主机名> <远程分支名>:<本地分支名>
+```
+
+写完之后就可以使用`hexo g -d`将文件部署到github上。
+
+## 收尾工作
+
+在不同环境写完之后，记得使用
+
+```
+git add .
+git commit -m "description"
+git push <远程主机名> <本地分支名>:<远程分支名>
+```
+
+以此保持文件一致。
+
+
 
 
 
