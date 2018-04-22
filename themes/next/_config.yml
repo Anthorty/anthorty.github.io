@@ -448,21 +448,21 @@ add_this_id: false
 #           Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,
 #           Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru
 needmoreshare2:
-  enable: false
+  enable: true
   postbottom:
     enable: false
     options:
-      iconStyle: box
+      iconStyle: default
       boxForm: horizontal
-      position: bottomCenter
-      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+      position: bottomLeft
+      networks: Weibo,Twitter,Facebook,Evernote,Linkedin,Tumblr
   float:
-    enable: false
+    enable: true
     options:
-      iconStyle: box
+      iconStyle: default
       boxForm: horizontal
       position: middleRight
-      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+      networks: Weibo,Twitter,Facebook,Evernote,Linkedin,Tumblr
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
@@ -806,7 +806,7 @@ vendors:
 
   # needMoreShare2
   # https://github.com/revir/need-more-share2
-  needMoreShare2:
+  # needMoreShare2:
 
 
 # Assets
