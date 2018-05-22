@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Love Saber
-subtitle: Be Hopeful
+title: Ekaros' blog
+subtitle: Pursuing Dream
 description: Stay Hungry,Stay Foolish
-author: 一生无悔Saber控
-language: zh-Hans
+author: 
+language: en
 timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://anthorty.github.io
+url: https://ekaros.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

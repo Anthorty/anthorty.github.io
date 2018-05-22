@@ -19,6 +19,7 @@
   }
 
   .post-title {
+    text-align: center;
     position: relative;
     font-size: $font-size-headings-base;
     font-weight: 400;
@@ -28,13 +29,14 @@
   .post-title:hover:before { background: $black-deep; }
 
   .post-body {
+    +desktop() {text-align: left;}
     +mobile() { font-size: $font-size-small; }
   }
 
   .post-body img { margin: 0; }
 
   .post-tags {
-    text-align: left;
+    text-align: center;
     a {
       padding: 1px 5px;
       background: $whitesmoke;
@@ -47,7 +49,7 @@
 
 .post-button {
   margin-top: 20px;
-  text-align: left;
+  text-align: center;
 
   a {
     padding: 0;
