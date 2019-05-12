@@ -19,7 +19,7 @@
   }
 
   .post-title {
-    position: center;
+    position: relative;
     font-size: $font-size-headings-base;
     font-weight: 400;
     +mobile() { font-size: $font-size-headings-small; }
@@ -28,13 +28,13 @@
   .post-title:hover:before { background: $black-deep; }
 
   .post-body {
-    +mobile() { font-size: $font-size-small; }
+    +mobile() { font-size: $font-size-base; }
   }
 
   .post-body img { margin: 0; }
 
   .post-tags {
-    text-align: center;
+    text-align: left;
     a {
       padding: 1px 5px;
       background: $whitesmoke;
@@ -47,7 +47,7 @@
 
 .post-button {
   margin-top: 20px;
-  text-align: center;
+  text-align: left;
 
   a {
     padding: 0;
@@ -60,7 +60,6 @@
 
     +mobile() { font-size: $font-size-small; }
     +desktop-large() { font-size: $font-size-large; }
-
 
     &:hover { border-bottom-color: $black-deep; }
   }
