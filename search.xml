@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[不同设备使用hexo写作的方法]]></title>
+    <url>%2F2017%2F12%2F30%2Flinux-writing%2F</url>
+    <content type="text"><![CDATA[同步的原理因为hexo本身上传到github上的文件是编译后的文件，所以我们要利用git的同步功能，将hexo文件夹中的文件同步到github上，然后实现在不同设备上使用hexo写作。 前期准备 一个github账号 git环境 这两个设置都十分简单，故此处不再赘述。 github设置建立新分支因为我们要先把hexo文件夹中的文件同步到hexo上，而yourname.github.io只有一个分支master，所以我们要新建一个分支（分支名可以随便取） 然后进入设置，把新建立的分支设置成默认分支 导入新设备中的SSH密钥首先算出新的密钥，使用ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;,一路回车，此过程中提示输入密码，可以选择不输入 Windows下没有自带SSH，需要手动安装 Windows下安装SSH 生成之后，找到id_rsa.pub,打开此文件，复制文件中所有内容后去github的设置页添加，找到Settings -&gt; 左栏点击 SSH and GPG Keys -&gt; 点击New SSH key 公钥内容粘贴进“Key”文本域内。 title栏中填一个容易辨别的标题，点击 Add key。添加完毕之后可以测试一下能否正常连接。12alex@alex-VirtualBox:~$ ssh -T git@github.comHi Anthorty! You&apos;ve successfully authenticated, but GitHub does not provide shell access. 出现此提示说明连接正常。 上传hexo文件夹中的文件打开命令行，切换到hexo文件夹，使用如下git命令详细方法见 Git远程操作详解1234git remote add backup git@github.com:yourname/yourname.github.io.gitgit add .git commit -m &quot;description&quot;git push backup master:hexo 等待完成后，在github上的hexo分支下就会出现hexo文件夹中的内容（不包括.gitignore、.npmignore中忽略的内容） 新设备中设置首先搭建好hexo环境 搭建Hexo环境进入准备用作Hexo的文件夹，输入 1234hexo init yourblognamecd yourblognamegit remote add &lt;远程主机名（可以自己取）&gt; git@github.com:yourname/yourname.github.io.gitgit pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt; 写完之后就可以使用hexo g -d将文件部署到github上。 收尾工作在不同环境写完之后，记得使用 123git add .git commit -m &quot;description&quot;git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt; 以此保持文件一致。]]></content>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>git设置</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[由一次map引发的思考]]></title>
+    <url>%2F2017%2F12%2F12%2F2017-12-12%2F</url>
+    <content type="text"><![CDATA[从map的运算方式开始首先定义一个简单函数和一个列表1234def foo(x): return x * xL = [1,2,3,4] 然后使用map函数，迭代计算出结果12In [11]: list(map(foo,L))Out[11]: [1, 4, 9, 16] 如果这时候加上x，会怎么样呢？说干就干123456789In [12]: x = 3In [13]: list(map(foo(x),L))---------------------------------------------------------------------------TypeError Traceback (most recent call last)&lt;ipython-input-13-d15e71ee2031&gt; in &lt;module&gt;()----&gt; 1 list(map(foo(x),L))TypeError: &apos;int&apos; object is not callable 给匿名函数传值直接报错了，那如果返回的是另外一个函数呢？用匿名函数试一下 1234567In [14]: def foo1(x): ...: return lambda x: x * x ...:In [15]: list(map(foo1(x),L))Out[15]: [1, 4, 9, 16] 此时能计算出正确的值，但是foo1(x)中的x参数此时对map对象没有影响了，也就是说x的值并没有传入到匿名函数中。不带x参数的时候，运行结果是123456In [18]: list(map(foo1,L))Out[18]:[&lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;, &lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;, &lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;, &lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;] 相比之下，使用表达式方式才是使用匿名函数的正确姿势1234In [16]: a = lambda y:y * yIn [17]: list(map(a,L))Out[17]: [1, 4, 9, 16] 而这种方式也是匿名函数的初衷。]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[OOP（面向对象编程）]]></title>
+    <url>%2F2017%2F05%2F15%2FOOP(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B)%2F</url>
+    <content type="text"><![CDATA[面向对象编程是一种程序设计的思想，或者叫做一种程序设计模式。 核心就是一切皆对象。 什么是对象？前面说了，一切皆对象。所有能称得上”东西“的实体，都可以称作对象。在 Python 中每一种数据类型，都是对象。对象是程序的基本单元，换句话说，程序其实是对象的集合。对象，能接收消息，也能够处理这些消息，当然也能发出消息。 类和实例Python 中除了 int、float、str，bool等基本数据类型，还可以自定义创建数据类型。这就需要引入”类“这个概念。 什么是类？类，通俗一点讲就是模板，比如 student 类，就是学生的模板。Java 和 Python 定义类都是”class“这个关键字。12class Student(object): ##这就定义了一个类(模板) pass 用模板创建出来的对象叫做实例。xiaoming = Student()就创建一个 Student 类型的数据 xiaoming。xiaoming 是一个对象，也是 Student 类的一个实例。 类中定义了一组变量和方法，用该类实例化的对象，都会获得这些属性和方法。但是每一个实例都是独立的，也就是说，当一个实例的属性和方法发生变化时，不影响其他的实例。12345678class Student(object): def __init__(self, name, score): self.name = name self.score = score def print_score(self): print('%s: %s' % (self.name, self.score)) 这是一个定义了 Student的完整的类，__init__方法是一个特殊的方法，从对象的角度，他为 Student能创建的实例都绑定了两个属性。所以说 Student 有 name 和 score 这两个属性，以及一个 print方法。从对象的生命周期上来讲，__init__方法对象实例化的入口，也就是说在执行bart = Student(&#39;Bart Simpson&#39;, 59)时，程序执行到___init__方法便创建了一个对象，并被分派给某些变量赋值。]]></content>
+      <categories>
+        <category>Learning Note</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>OOP</tag>
+      </tags>
+  </entry>
+</search>
