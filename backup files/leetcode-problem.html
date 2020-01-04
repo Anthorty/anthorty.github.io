@@ -102,17 +102,18 @@
 
 
 
-  <meta name="description" content="Stay Hungry,Stay Foolish">
+  <meta name="description" content="This is a note that recorded my thinking about solved leetcode problems">
+<meta name="keywords" content="Leetcode,algorithm">
 <meta property="og:type" content="website">
-<meta property="og:title" content="404 Not Found：该页无法显示">
-<meta property="og:url" content="https://ekaros.cn/404.html">
+<meta property="og:title" content="Leetcode Problems 1">
+<meta property="og:url" content="https://ekaros.cn/backup files/leetcode-problem.html">
 <meta property="og:site_name" content="Ekaros&#39; Blog">
-<meta property="og:description" content="Stay Hungry,Stay Foolish">
+<meta property="og:description" content="This is a note that recorded my thinking about solved leetcode problems">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-12T10:03:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404 Not Found：该页无法显示">
-<meta name="twitter:description" content="Stay Hungry,Stay Foolish">
+<meta name="twitter:title" content="Leetcode Problems 1">
+<meta name="twitter:description" content="This is a note that recorded my thinking about solved leetcode problems">
 
 
 
@@ -120,7 +121,7 @@
 
   
   
-  <link rel="canonical" href="https://ekaros.cn/404">
+  <link rel="canonical" href="https://ekaros.cn/backup files/leetcode-problem">
 
 
 
@@ -130,7 +131,7 @@
   };
 </script>
 
-  <title>404 Not Found：该页无法显示 | Ekaros' Blog</title>
+  <title>Leetcode Problems 1 | Ekaros' Blog</title>
   
 
 
@@ -352,11 +353,13 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">404 Not Found：该页无法显示
+<h1 class="post-title" itemprop="name headline">Leetcode Problems 1
 
 </h1>
 
 <div class="post-meta">
+  
+    <div class="post-description">This is a note that recorded my thinking about solved leetcode problems</div>
   
   
 
@@ -372,7 +375,9 @@
       <div class="post-body">
         
         
-          
+          <p>All this article is ordered by Acceptance high to low（Premium problem not include）,and all solution will give Java and Python solution.</p>
+<p>1.Jewels and Stones Solution</p>
+
         
       </div>
       
@@ -391,6 +396,17 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -678,9 +694,46 @@
 </script>
 
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://ekaros.cn/backup files/leetcode-problem.html";
+    this.page.identifier = "backup files/leetcode-problem.html";
+    this.page.title = 'Leetcode Problems 1';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://lovesaber.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        window.addEventListener('load', loadComments, false);
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
 
 
 
+
+
+  
 
 
   

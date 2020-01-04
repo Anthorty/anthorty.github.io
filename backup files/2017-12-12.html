@@ -102,17 +102,18 @@
 
 
 
-  <meta name="description" content="Stay Hungry,Stay Foolish">
+  <meta name="description" content="map是一个非常方便的高阶函数，但也有一些细节。">
+<meta name="keywords" content="Python,笔记">
 <meta property="og:type" content="website">
-<meta property="og:title" content="404 Not Found：该页无法显示">
-<meta property="og:url" content="https://ekaros.cn/404.html">
+<meta property="og:title" content="由一次map引发的思考">
+<meta property="og:url" content="https://ekaros.cn/backup files/2017-12-12.html">
 <meta property="og:site_name" content="Ekaros&#39; Blog">
-<meta property="og:description" content="Stay Hungry,Stay Foolish">
+<meta property="og:description" content="map是一个非常方便的高阶函数，但也有一些细节。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-05-12T10:03:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404 Not Found：该页无法显示">
-<meta name="twitter:description" content="Stay Hungry,Stay Foolish">
+<meta name="twitter:title" content="由一次map引发的思考">
+<meta name="twitter:description" content="map是一个非常方便的高阶函数，但也有一些细节。">
 
 
 
@@ -120,7 +121,7 @@
 
   
   
-  <link rel="canonical" href="https://ekaros.cn/404">
+  <link rel="canonical" href="https://ekaros.cn/backup files/2017-12-12">
 
 
 
@@ -130,7 +131,7 @@
   };
 </script>
 
-  <title>404 Not Found：该页无法显示 | Ekaros' Blog</title>
+  <title>由一次map引发的思考 | Ekaros' Blog</title>
   
 
 
@@ -352,11 +353,13 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">404 Not Found：该页无法显示
+<h1 class="post-title" itemprop="name headline">由一次map引发的思考
 
 </h1>
 
 <div class="post-meta">
+  
+    <div class="post-description">map是一个非常方便的高阶函数，但也有一些细节。</div>
   
   
 
@@ -372,7 +375,15 @@
       <div class="post-body">
         
         
-          
+          <h2 id="从map的运算方式开始"><a href="#从map的运算方式开始" class="headerlink" title="从map的运算方式开始"></a>从map的运算方式开始</h2><p>首先定义一个简单函数和一个列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def foo(x):</span><br><span class="line">	return x * x</span><br><span class="line"></span><br><span class="line">L = [1,2,3,4]</span><br></pre></td></tr></table></figure></p>
+<p>然后使用map函数，迭代计算出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In [11]: list(map(foo,L))</span><br><span class="line">Out[11]: [1, 4, 9, 16]</span><br></pre></td></tr></table></figure></p>
+<p>如果这时候加上x，会怎么样呢？说干就干<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">In [12]: x = 3</span><br><span class="line"></span><br><span class="line">In [13]: list(map(foo(x),L))</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">TypeError                                 Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-13-d15e71ee2031&gt; in &lt;module&gt;()</span><br><span class="line">----&gt; 1 list(map(foo(x),L))</span><br><span class="line"></span><br><span class="line">TypeError: &apos;int&apos; object is not callable</span><br></pre></td></tr></table></figure></p>
+<h2 id="给匿名函数传值"><a href="#给匿名函数传值" class="headerlink" title="给匿名函数传值"></a>给匿名函数传值</h2><p>直接报错了，那如果返回的是另外一个函数呢？用匿名函数试一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">In [14]: def foo1(x):</span><br><span class="line">    ...:     return lambda x: x * x</span><br><span class="line">    ...:</span><br><span class="line"></span><br><span class="line">In [15]: list(map(foo1(x),L))</span><br><span class="line">Out[15]: [1, 4, 9, 16]</span><br></pre></td></tr></table></figure>
+<p>此时能计算出正确的值，但是<code>foo1(x)</code>中的<code>x</code>参数此时对map对象没有影响了，也就是说x的值并没有传入到匿名函数中。<br>不带x参数的时候，运行结果是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">In [18]: list(map(foo1,L))</span><br><span class="line">Out[18]:</span><br><span class="line">[&lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;,</span><br><span class="line"> &lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;,</span><br><span class="line"> &lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;,</span><br><span class="line"> &lt;function __main__.foo1.&lt;locals&gt;.&lt;lambda&gt;&gt;]</span><br></pre></td></tr></table></figure></p>
+<p>相比之下，使用表达式方式才是使用匿名函数的正确姿势<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In [16]: a = lambda y:y * y</span><br><span class="line"></span><br><span class="line">In [17]: list(map(a,L))</span><br><span class="line">Out[17]: [1, 4, 9, 16]</span><br></pre></td></tr></table></figure></p>
+<p>而这种方式也是匿名函数的初衷。</p>
+
         
       </div>
       
@@ -392,6 +403,17 @@
           </div>
           
 
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
+
+
+
         </div>
         
           
@@ -410,8 +432,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -515,6 +546,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#从map的运算方式开始"><span class="nav-number">1.</span> <span class="nav-text">从map的运算方式开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给匿名函数传值"><span class="nav-number">2.</span> <span class="nav-text">给匿名函数传值</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -678,9 +726,46 @@
 </script>
 
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://ekaros.cn/backup files/2017-12-12.html";
+    this.page.identifier = "backup files/2017-12-12.html";
+    this.page.title = '由一次map引发的思考';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://lovesaber.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    $(function() {
+      var offsetTop = $('#comments').offset().top - $(window).height();
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        window.addEventListener('load', loadComments, false);
+      } else {
+        $(window).on('scroll.disqus_scroll', function() {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = $('#comments').offset().top - $(window).height();
+          var scrollTop = $(window).scrollTop();
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            $(window).off('.disqus_scroll');
+            loadComments();
+          }
+        });
+      }
+    });
+  
+</script>
 
 
 
+
+
+  
 
 
   
