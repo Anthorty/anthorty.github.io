@@ -48,17 +48,17 @@
   };
 </script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
-#needsharebutton-float {
-  bottom: 88px;
+#needsharebutton-postbottom {
   cursor: pointer;
-  left: -8px;
-  position: fixed;
-  z-index: 9999;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
 }
-#needsharebutton-float .btn {
+#needsharebutton-postbottom .btn {
   border: 1px solid $btn-default-border-color;
-  border-radius: 4px;
-  padding: 0 10px 0 14px;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
 }
 </style>
   <title>标签: Git设置 | Ekaros' Blog</title>
@@ -385,6 +385,26 @@
 </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-users"></i>
+      </span>
+      <span class="site-uv" title="总计访客">
+        本博客总计<span id="busuanzi_value_site_uv"></span>位访客
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总计阅读量">
+        本博客总计<span id="busuanzi_value_site_pv"></span>阅读量
+      </span>
+    </span>
+</div>
 
 
 
@@ -533,19 +553,15 @@
   
 
   
-<div id="needsharebutton-float">
-      <span class="btn">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
-      </span>
-    </div>
+
   <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
   <script>
-      flOptions = {};
-        flOptions.iconStyle = "box";
-        flOptions.boxForm = "horizontal";
-        flOptions.position = "bottomLeft";
-        flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
-      new needShareButton('#needsharebutton-float', flOptions);
+      pbOptions = {};
+        pbOptions.iconStyle = "default";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "middleCenter";
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
   </script>
 
 <script>
