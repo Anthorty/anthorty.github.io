@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://ekaros.cn/categories/index.html</loc>
+    <loc>https://ekaros.cn/tags/index.html</loc>
     
-    <lastmod>2020-03-01T14:00:18.470Z</lastmod>
+    <lastmod>2020-03-01T14:20:03.225Z</lastmod>
     
   </url>
   
@@ -51,21 +51,14 @@
   </url>
   
   <url>
-    <loc>https://ekaros.cn/backup%20files/leetcode-problem.html</loc>
-    
-    <lastmod>2019-05-12T10:03:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ekaros.cn/tags/index.html</loc>
-    
-    <lastmod>2019-05-12T10:03:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://ekaros.cn/backup%20files/OOP(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B).html</loc>
+    
+    <lastmod>2019-05-12T10:03:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ekaros.cn/backup%20files/leetcode-problem.html</loc>
     
     <lastmod>2019-05-12T10:03:28.000Z</lastmod>
     
