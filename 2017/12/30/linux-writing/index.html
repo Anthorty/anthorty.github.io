@@ -16,12 +16,13 @@
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster Two:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
   <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"ekaros.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"ekaros.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":true,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="一个使用Github和Git实现在不同设备上使用Hexo写作的教程">
@@ -32,13 +33,10 @@
 <meta property="og:site_name" content="Ekaros&#39; Blog">
 <meta property="og:description" content="一个使用Github和Git实现在不同设备上使用Hexo写作的教程">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://ekaros.cn/2017/12/30/linux-writing/createdBranch.jpg">
-<meta property="og:image" content="https://ekaros.cn/2017/12/30/linux-writing/settingBranch.jpg">
 <meta property="og:updated_time" content="2020-03-03T05:23:34.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="不同设备使用Hexo写作的方法">
 <meta name="twitter:description" content="一个使用Github和Git实现在不同设备上使用Hexo写作的教程">
-<meta name="twitter:image" content="https://ekaros.cn/2017/12/30/linux-writing/createdBranch.jpg">
 
 <link rel="canonical" href="https://ekaros.cn/2017/12/30/linux-writing/">
 
@@ -328,9 +326,9 @@
 </ol>
 <p>这两个设置都十分简单，故此处不再赘述。</p>
 <h2 id="github设置"><a href="#github设置" class="headerlink" title="github设置"></a>github设置</h2><h3 id="建立新分支"><a href="#建立新分支" class="headerlink" title="建立新分支"></a>建立新分支</h3><p>因为我们要先把hexo文件夹中的文件同步到hexo上，而yourname.github.io只有一个分支master，所以我们要新建一个分支（分支名可以随便取）</p>
-<img src="/2017/12/30/linux-writing/createdBranch.jpg" title="建立一个hexo分支">
+<img data-src="/2017/12/30/linux-writing/createdBranch.jpg" title="建立一个hexo分支">
 <p>然后进入设置，把新建立的分支设置成默认分支</p>
-<img src="/2017/12/30/linux-writing/settingBranch.jpg" title="设置默认分支">
+<img data-src="/2017/12/30/linux-writing/settingBranch.jpg" title="设置默认分支">
 <h3 id="导入新设备中的SSH密钥"><a href="#导入新设备中的SSH密钥" class="headerlink" title="导入新设备中的SSH密钥"></a>导入新设备中的SSH密钥</h3><p>首先算出新的密钥，使用<code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code>,一路回车，此过程中提示输入密码，可以选择不输入</p>
 <ul>
 <li>Windows下没有自带SSH，需要手动安装 <a href="https://www.jianshu.com/p/f8ba3e51d60e" target="_blank" rel="noopener">Windows下安装SSH</a></li>
@@ -663,6 +661,9 @@
   
   <script color='168,97,107' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
